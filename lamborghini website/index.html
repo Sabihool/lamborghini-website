@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automobili Lamborghini | Future Began Yesterday</title>
+    <meta name="description" content="Experience the pinnacle of Italian automotive engineering. Discover the Lamborghini model range.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Rajdhani', 'sans-serif'],
+                        display: ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        lambo: {
+                            yellow: '#FDB913', // Iconic Giallo
+                            black: '#0a0a0a',
+                            carbon: '#1a1a1a',
+                        }
+                    },
+                    backgroundImage: {
+                        'hex-pattern': "url('https://www.transparenttextures.com/patterns/carbon-fibre.png')"
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #050505;
+            color: #FAFAFA;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #000; }
+        ::-webkit-scrollbar-thumb { background: #FDB913; border-radius: 0; }
+        ::-webkit-scrollbar-thumb:hover { background: #cca300; }
+
+        /* Hexagon Clip Path for Images/Buttons */
+        .clip-angled {
+            clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%);
+        }
+
+        /* Animation Utilities */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+
+        /* Image Hover Zoom & Glitch Effect */
+        .project-card:hover .project-img {
+            transform: scale(1.1);
+            filter: grayscale(0%);
+        }
+        
+        .project-img {
+            filter: grayscale(100%);
+        }
+
+        /* Input Autofill Fix */
+        input:-webkit-autofill,
+        textarea:-webkit-autofill {
+            -webkit-text-fill-color: white;
+            -webkit-box-shadow: 0 0 0px 1000px #0a0a0a inset;
+            transition: background-color 5000s ease-in-out 0s;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-lambo-yellow selection:text-black">
+
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300 backdrop-blur-md border-b border-white/5 bg-black/60" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-24">
+                <a href="#" class="text-2xl font-display font-black tracking-widest hover:text-lambo-yellow transition-colors uppercase flex items-center gap-2 h-full">
+                    <img src="lamborghini-logo.png" alt="logo" class="h-full">
+                </a>
+
+                <div class="hidden md:flex space-x-10 text-sm font-bold uppercase tracking-widest font-display">
+                    <a href="#models" class="hover:text-lambo-yellow transition-colors">Models</a>
+                    <a href="#legacy" class="hover:text-lambo-yellow transition-colors">Brand</a>
+                    <a href="#experience" class="hover:text-lambo-yellow transition-colors">Experience</a>
+                    <a href="#dealership" class="text-lambo-yellow border border-lambo-yellow px-6 py-2 hover:bg-lambo-yellow hover:text-black transition-all clip-angled">Find Dealer</a>
+                </div>
+
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-white hover:text-lambo-yellow focus:outline-none">
+                        <i data-lucide="menu" class="w-8 h-8"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="md:hidden hidden bg-black border-b border-lambo-yellow/20 absolute w-full">
+            <div class="px-6 py-8 space-y-6 flex flex-col items-center text-center font-display font-bold uppercase tracking-wider">
+                <a href="#models" class="block hover:text-lambo-yellow w-full">Models</a>
+                <a href="#legacy" class="block hover:text-lambo-yellow w-full">Brand</a>
+                <a href="#experience" class="block hover:text-lambo-yellow w-full">Experience</a>
+                <a href="#dealership" class="block text-lambo-yellow w-full">Find Dealer</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20 px-6 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1544605368-180a436f585a?q=80&w=2746&auto=format&fit=crop')] bg-cover bg-center opacity-40"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+        
+        <div class="max-w-6xl mx-auto text-center reveal relative z-10">
+            <p class="text-lambo-yellow font-bold tracking-[0.4em] uppercase mb-4 animate-pulse">Sant'Agata Bolognese</p>
+            <h1 class="text-6xl md:text-8xl lg:text-9xl font-display font-black tracking-tighter mb-6 leading-none italic uppercase">
+                Dare to <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-lambo-yellow to-white">Live.</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto mb-12 font-light">
+                Driving humans beyond the limit. Experience the V12 Hybrid revolution.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                <a href="#models" class="group relative px-10 py-4 bg-lambo-yellow text-black font-display font-black uppercase tracking-wider clip-angled transition-all hover:scale-105 hover:bg-white">
+                    Configure Yours
+                </a>
+                <a href="#legacy" class="px-10 py-4 border border-white/30 text-white font-display font-bold uppercase tracking-wider clip-angled hover:bg-white/10 transition-all hover:border-white">
+                    Discover Legacy
+                </a>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 flex flex-col items-center gap-2">
+            <span class="text-xs uppercase tracking-widest text-gray-500">Scroll to Accelerate</span>
+            <div class="h-12 w-[1px] bg-lambo-yellow"></div>
+        </div>
+    </section>
+
+    <section id="legacy" class="py-24 px-6 bg-lambo-black border-t border-white/5 relative">
+        <div class="absolute top-0 right-0 text-[20rem] font-black text-white/5 leading-none select-none pointer-events-none -translate-y-1/2 overflow-hidden">V12</div>
+        
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+            <div class="reveal">
+                <h2 class="text-4xl md:text-6xl font-display font-black uppercase mb-8 italic">Designed by <span class="text-lambo-yellow">Air.</span></h2>
+                <p class="text-gray-400 text-lg leading-relaxed mb-8">
+                    Since 1963, we have been creating engines that scream and designs that cut through the wind. Our philosophy is not just about speed; it is about the emotion of driving. 
+                </p>
+                <p class="text-gray-400 text-lg leading-relaxed mb-10">
+                    From the Miura to the Revuelto, every curve serves a purpose. We utilize forged carbon fiber composites and active aerodynamics to ensure that you are glued to the asphalt.
+                </p>
+                
+                <div class="space-y-6">
+                    <h3 class="text-sm uppercase tracking-widest text-lambo-yellow border-b border-lambo-yellow/20 pb-2 inline-block">Core Technologies</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="p-4 border border-white/10 bg-white/5">
+                            <span class="block text-2xl font-bold text-white mb-1">ALA</span>
+                            <span class="text-xs text-gray-400 uppercase">Active Aerodynamics</span>
+                        </div>
+                        <div class="p-4 border border-white/10 bg-white/5">
+                            <span class="block text-2xl font-bold text-white mb-1">LDVI</span>
+                            <span class="text-xs text-gray-400 uppercase">Vehicle Dynamics</span>
+                        </div>
+                        <div class="p-4 border border-white/10 bg-white/5">
+                            <span class="block text-2xl font-bold text-white mb-1">HPEV</span>
+                            <span class="text-xs text-gray-400 uppercase">High Performance Hybrid</span>
+                        </div>
+                        <div class="p-4 border border-white/10 bg-white/5">
+                            <span class="block text-2xl font-bold text-white mb-1">CFRP</span>
+                            <span class="text-xs text-gray-400 uppercase">Forged Composite</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="reveal delay-200 relative">
+                <div class="absolute -inset-4 border-2 border-lambo-yellow/30 opacity-50 translate-x-4 translate-y-4"></div>
+                <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=2574&auto=format&fit=crop&grayscale" alt="Interior Detail" class="relative z-10 w-full h-full object-cover clip-angled grayscale hover:grayscale-0 transition-all duration-700">
+            </div>
+        </div>
+    </section>
+
+    <section id="models" class="py-24 px-6 bg-black">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal border-b border-white/10 pb-6">
+                <div>
+                    <span class="text-lambo-yellow font-bold tracking-widest uppercase mb-2 block">The Fleet</span>
+                    <h2 class="text-4xl md:text-6xl font-display font-black uppercase italic text-white">Masterpieces</h2>
+                </div>
+                <a href="#" class="hidden md:inline-flex items-center text-sm font-bold uppercase tracking-widest hover:text-lambo-yellow transition-colors group">
+                    View Full Inventory <i data-lucide="arrow-right" class="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <article class="group project-card cursor-pointer lg:col-span-2 reveal">
+                    <div class="relative overflow-hidden clip-angled aspect-video bg-gray-900 border border-white/10">
+                        <img src="https://images.unsplash.com/photo-1621135802920-133df287f89c?q=80&w=2670&auto=format&fit=crop" alt="Revuelto" class="project-img object-cover w-full h-full transition-transform duration-700 ease-out">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90"></div>
+                        <div class="absolute bottom-0 left-0 p-8">
+                            <h3 class="text-4xl font-display font-black italic uppercase text-white group-hover:text-lambo-yellow transition-colors">Revuelto</h3>
+                            <p class="text-sm font-mono text-gray-300 mt-2 border-l-2 border-lambo-yellow pl-3">V12 HYBRID PLUG-IN HPEV</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="group project-card cursor-pointer reveal delay-100">
+                    <div class="relative overflow-hidden clip-angled aspect-square md:aspect-video lg:aspect-square bg-gray-900 border border-white/10">
+                        <img src="https://images.unsplash.com/photo-1566008885218-90abf9200ddb?q=80&w=2565&auto=format&fit=crop" alt="Huracan" class="project-img object-cover w-full h-full transition-transform duration-700 ease-out">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+                        <div class="absolute bottom-0 left-0 p-6">
+                            <h3 class="text-3xl font-display font-black italic uppercase text-white group-hover:text-lambo-yellow transition-colors">Huracán</h3>
+                            <p class="text-sm font-mono text-gray-300 mt-2 border-l-2 border-lambo-yellow pl-3">V10 NATURALLY ASPIRATED</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="group project-card cursor-pointer reveal">
+                    <div class="relative overflow-hidden clip-angled aspect-square md:aspect-video lg:aspect-square bg-gray-900 border border-white/10">
+                        <img src="https://images.pexels.com/photos/30043487/pexels-photo-30043487.jpeg?_gl=1*19gt8yc*_ga*MTY0OTEyNzAzNC4xNzY3NTg4NDk0*_ga_8JE65Q40S6*czE3NjkxNDQzMjEkbzMkZzEkdDE3NjkxNDQzNTUkajI2JGwwJGgw" alt="Urus" class="project-img object-cover w-full h-full transition-transform duration-700 ease-out">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+                        <div class="absolute bottom-0 left-0 p-6">
+                            <h3 class="text-3xl font-display font-black italic uppercase text-white group-hover:text-lambo-yellow transition-colors">Urus SE</h3>
+                            <p class="text-sm font-mono text-gray-300 mt-2 border-l-2 border-lambo-yellow pl-3">SUPER SUV</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="group project-card cursor-pointer lg:col-span-2 reveal delay-100">
+                    <div class="relative overflow-hidden clip-angled aspect-video bg-gray-900 border border-white/10">
+                        <img src="https://images.pexels.com/photos/29871550/pexels-photo-29871550.jpeg?_gl=1*1pzqomr*_ga*MTY0OTEyNzAzNC4xNzY3NTg4NDk0*_ga_8JE65Q40S6*czE3NjkxNDQzMjEkbzMkZzEkdDE3NjkxNDQ0OTMkajIzJGwwJGgw" alt="Lanzador" class="project-img object-cover w-full h-full transition-transform duration-700 ease-out">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90"></div>
+                        <div class="absolute bottom-0 left-0 p-8">
+                            <h3 class="text-4xl font-display font-black italic uppercase text-white group-hover:text-lambo-yellow transition-colors">Lanzador</h3>
+                            <p class="text-sm font-mono text-gray-300 mt-2 border-l-2 border-lambo-yellow pl-3">THE ULTRA GT CONCEPT</p>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-24 px-6 bg-lambo-carbon bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <h2 class="text-3xl md:text-5xl font-display font-black uppercase mb-4 italic">Ownership Experience</h2>
+                <p class="text-gray-400">Buying a Lamborghini is just the beginning.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-8 border border-white/10 bg-black/80 hover:border-lambo-yellow transition-all duration-300 hover:-translate-y-2 reveal">
+                    <div class="text-lambo-yellow mb-4"><i data-lucide="palette" class="w-10 h-10"></i></div>
+                    <h3 class="text-2xl font-display font-bold uppercase mb-4">Ad Personam</h3>
+                    <p class="text-gray-400 text-sm mb-8 leading-relaxed">Make it uniquely yours. Choose from infinite color combinations, leathers, and carbon fiber details in our exclusive studio.</p>
+                    <a href="#" class="inline-block text-sm font-bold uppercase tracking-widest border-b border-lambo-yellow pb-1 hover:text-lambo-yellow">Customize</a>
+                </div>
+
+                <div class="p-8 border-2 border-lambo-yellow bg-gray-900/50 hover:bg-gray-900 transition-all duration-300 hover:-translate-y-2 reveal delay-100 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-lambo-yellow text-black text-xs font-bold px-3 py-1 uppercase">Recommended</div>
+                    <div class="text-white mb-4"><i data-lucide="flag" class="w-10 h-10"></i></div>
+                    <h3 class="text-2xl font-display font-bold uppercase mb-4">Accademia</h3>
+                    <p class="text-gray-400 text-sm mb-8 leading-relaxed">Master your vehicle. Join professional instructors on the world's most prestigious tracks to unleash full power.</p>
+                    <a href="#" class="inline-block text-sm font-bold uppercase tracking-widest border-b border-white pb-1 hover:text-lambo-yellow hover:border-lambo-yellow transition-colors">Book Track Day</a>
+                </div>
+
+                <div class="p-8 border border-white/10 bg-black/80 hover:border-lambo-yellow transition-all duration-300 hover:-translate-y-2 reveal delay-200">
+                    <div class="text-lambo-yellow mb-4"><i data-lucide="settings" class="w-10 h-10"></i></div>
+                    <h3 class="text-2xl font-display font-bold uppercase mb-4">Factory Tour</h3>
+                    <p class="text-gray-400 text-sm mb-8 leading-relaxed">Visit the birthplace of every bull. Walk the assembly line in Sant'Agata Bolognese and witness the marriage of chassis and engine.</p>
+                    <a href="#" class="inline-block text-sm font-bold uppercase tracking-widest border-b border-lambo-yellow pb-1 hover:text-lambo-yellow">Visit Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="dealership" class="py-24 px-6 bg-black relative">
+        <div class="absolute right-0 bottom-0 w-1/2 h-full bg-gradient-to-l from-gray-900 to-transparent opacity-20 pointer-events-none"></div>
+
+        <div class="max-w-4xl mx-auto border border-white/10 bg-white/5 p-8 md:p-16 relative reveal">
+            <div class="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-lambo-yellow"></div>
+            <div class="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-lambo-yellow"></div>
+
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-5xl font-display font-black uppercase mb-4 italic">Start Your Engine</h2>
+                <p class="text-gray-400">Request a consultation or locate your nearest authorized dealer.</p>
+            </div>
+
+            <form class="space-y-8" onsubmit="event.preventDefault(); alert('Request sent to Sant\'Agata Bolognese.');">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="relative group">
+                        <input type="text" id="name" required class="block w-full bg-transparent border-b border-gray-700 text-white py-4 font-mono focus:outline-none focus:border-lambo-yellow transition-colors peer placeholder-transparent" placeholder="Name">
+                        <label for="name" class="absolute left-0 top-4 text-gray-500 uppercase text-xs tracking-widest transition-all peer-focus:-top-4 peer-focus:text-lambo-yellow peer-valid:-top-4 peer-valid:text-lambo-yellow pointer-events-none">Full Name</label>
+                    </div>
+                    <div class="relative group">
+                        <input type="email" id="email" required class="block w-full bg-transparent border-b border-gray-700 text-white py-4 font-mono focus:outline-none focus:border-lambo-yellow transition-colors peer placeholder-transparent" placeholder="Email">
+                        <label for="email" class="absolute left-0 top-4 text-gray-500 uppercase text-xs tracking-widest transition-all peer-focus:-top-4 peer-focus:text-lambo-yellow peer-valid:-top-4 peer-valid:text-lambo-yellow pointer-events-none">Email Address</label>
+                    </div>
+                </div>
+                
+                <div class="relative group">
+                    <select id="model" class="block w-full bg-transparent border-b border-gray-700 text-white py-4 font-mono focus:outline-none focus:border-lambo-yellow transition-colors appearance-none">
+                        <option class="bg-black text-gray-500">Select Model of Interest</option>
+                        <option class="bg-black">Revuelto</option>
+                        <option class="bg-black">Huracán Sterrato</option>
+                        <option class="bg-black">Urus SE</option>
+                        <option class="bg-black">Urus Performante</option>
+                    </select>
+                    <div class="absolute right-0 top-4 text-lambo-yellow pointer-events-none">▼</div>
+                </div>
+
+                <div class="relative group">
+                    <textarea id="message" rows="3" class="block w-full bg-transparent border-b border-gray-700 text-white py-4 font-mono focus:outline-none focus:border-lambo-yellow transition-colors peer resize-none placeholder-transparent" placeholder="Message"></textarea>
+                    <label for="message" class="absolute left-0 top-4 text-gray-500 uppercase text-xs tracking-widest transition-all peer-focus:-top-4 peer-focus:text-lambo-yellow peer-valid:-top-4 peer-valid:text-lambo-yellow pointer-events-none">Additional Comments</label>
+                </div>
+
+                <div class="text-center pt-6">
+                    <button type="submit" class="w-full md:w-auto px-16 py-4 bg-white text-black font-display font-black uppercase tracking-widest hover:bg-lambo-yellow transition-colors clip-angled">
+                        Submit Request
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer class="py-12 border-t border-white/10 bg-black text-center relative z-10">
+        <div class="flex justify-center items-center gap-2 mb-6 text-lambo-yellow">
+            <i data-lucide="zap" class="w-6 h-6"></i>
+        </div>
+        <div class="flex justify-center space-x-8 mb-8">
+            <a href="#" class="text-gray-500 hover:text-white transition-colors uppercase text-xs tracking-widest">Instagram</a>
+            <a href="#" class="text-gray-500 hover:text-white transition-colors uppercase text-xs tracking-widest">Facebook</a>
+            <a href="#" class="text-gray-500 hover:text-white transition-colors uppercase text-xs tracking-widest">YouTube</a>
+            <a href="#" class="text-gray-500 hover:text-white transition-colors uppercase text-xs tracking-widest">Linkedin</a>
+        </div>
+        <p class="text-xs text-gray-700 uppercase tracking-widest">
+            &copy; 2026 Automobili Lamborghini S.p.A. <br> A sole shareholder company part of Audi Group.
+        </p>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Logic
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navbar = document.getElementById('navbar');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const isExpanded = !mobileMenu.classList.contains('hidden');
+            if(isExpanded) {
+                navbar.classList.add('bg-black');
+            } else {
+                if(window.scrollY === 0) navbar.classList.remove('bg-black');
+            }
+        });
+
+        // Close menu on link click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Scroll Animation Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-black/90', 'border-b', 'border-lambo-yellow/30');
+            } else {
+                navbar.classList.remove('bg-black/90', 'border-b', 'border-lambo-yellow/30');
+            }
+        });
+    </script>
+</body>
+</html>
